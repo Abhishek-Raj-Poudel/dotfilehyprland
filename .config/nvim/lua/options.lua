@@ -30,6 +30,8 @@ vim.opt.ignorecase = true
 -- enable all colors
 vim.opt.termguicolors = true
 
+vim.opt.conceallevel = 2
+
 
 -- Leader key is now set to space
 vim.g.mapleader = " "
