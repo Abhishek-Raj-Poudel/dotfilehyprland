@@ -4,7 +4,15 @@ This is my personal [Hyprland](https://hyprland.org/) dotfiles.
 
 ## Installation
 
-1. Install [Hyprland](https://hyprland.org/)
+1. Install the following 
+```sh
+sudo pacman -S git
+sudo pacman -S brightnessctl
+sudo pacman -S hyprpicker 
+```
+Install Hyperland as well
+[Hyprland](https://hyprland.org/)
+
 2. Clone this repository
 3. Intall gnu stow 
 ```sh
