@@ -6,7 +6,7 @@ This is my personal [Hyprland](https://hyprland.org/) dotfiles.
 
 1. Install the following 
 ```sh
-sudo pacman -S git brightnessctl hyprpicker hyprshot hypridle lazygit
+sudo pacman -S git brightnessctl hyprpicker hyprshot hypridle lazygit ly
 ```
 Install Hyperland as well
 [Hyprland](https://hyprland.org/)
