@@ -1,6 +1,9 @@
 -- Enable line number
 vim.opt.number = true
 
+-- Set terminal to zsh
+vim.o.shell = "/bin/zsh"
+
 -- Enable relative line number
 vim.opt.relativenumber = true
 
@@ -39,6 +42,10 @@ vim.g.mapleader = " "
 vim.keymap.set('n','<C-\\>','<cmd>vs<cr>',{noremap=true, silent=true,desc="Split vertically"})
 vim.keymap.set('n','<leader>\\','<cmd>vs<cr>',{noremap=true, silent=true,desc="Split vertically"})
 
+--cycle through windows
+vim.keymap.set("n", "<leader>j", "<C-w>h", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>k", "<C-w>l", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>th', ':split term://zsh<CR>', { noremap = true })
 -- Setup diagnostic 
 
 vim.diagnostic.config({
@@ -48,3 +55,4 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = true,
 })
+
