@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+CONFIG="$HOME/.config/todoist-cli/config.json"
+
+if [ ! -f "$CONFIG" ]; then
+  echo "Config not found. Create one at $CONFIG with your Todoist token:"
+  echo '{"token": "your_todoist_token_here"}'
+  exit 1
+fi
+
+TOKEN=$(jq -r '.token' "$CONFIG")
+
+if [ -z "$1" ]; then
+  echo "Usage: todoist \"Task content\""
+  exit 1
+fi
+
+TEXT="$*"
+
+response=$(curl -s -X POST https://api.todoist.com/api/v1/tasks/quick \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "text=$TEXT #Someday")
+
+if echo "$response" | jq -e .content >/dev/null 2>&1; then
+  content=$(echo "$response" | jq -r .content)
+  echo "✔ Task added: $content"
+else
+  echo "❌ Failed: $response"
+fi
