@@ -1,11 +1,12 @@
 -- Enable line number
 vim.opt.number = true
 
--- Set terminal to zsh
-vim.o.shell = "/bin/zsh"
-
 -- Enable relative line number
 vim.opt.relativenumber = true
+
+-- Hightlight current line's number
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 -- Enable split below eg when writing the command :help now it show help below
 vim.opt.splitbelow = true
