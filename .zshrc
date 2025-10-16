@@ -88,3 +88,5 @@ export PATH="$HOME/bin:$PATH"
 
 export VISUAL=nvim
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+export PATH="$HOME/.local/bin:$PATH"
