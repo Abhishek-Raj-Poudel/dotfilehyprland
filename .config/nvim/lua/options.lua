@@ -7,7 +7,7 @@ vim.o.shell = "/bin/zsh"
 -- Enable relative line number
 vim.opt.relativenumber = true
 
--- Enable split below eg when writing the command :help now it show help below  
+-- Enable split below eg when writing the command :help now it show help below
 vim.opt.splitbelow = true
 
 -- Use space as tab, you can still use tabs but not on save they will be space
@@ -35,24 +35,28 @@ vim.opt.termguicolors = true
 
 vim.opt.conceallevel = 2
 
-
 -- Leader key is now set to space
 vim.g.mapleader = " "
 
-vim.keymap.set('n','<C-\\>','<cmd>vs<cr>',{noremap=true, silent=true,desc="Split vertically"})
-vim.keymap.set('n','<leader>\\','<cmd>vs<cr>',{noremap=true, silent=true,desc="Split vertically"})
+vim.keymap.set("n", "<C-\\>", "<cmd>vs<cr>", { noremap = true, silent = true, desc = "Split vertically" })
+vim.keymap.set("n", "<leader>\\", "<cmd>vs<cr>", { noremap = true, silent = true, desc = "Split vertically" })
 
---cycle through windows
-vim.keymap.set("n", "<leader>j", "<C-w>h", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>k", "<C-w>l", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>th', ':split term://zsh<CR>', { noremap = true })
--- Setup diagnostic 
+-- Setup diagnostic
 
 vim.diagnostic.config({
-    virtual_lines = true,     -- show inline messages (right side)
-    signs = true,            -- show signs in the gutter
-    underline = true,
-    update_in_insert = false,
-    severity_sort = true,
+	virtual_lines = true, -- show inline messages (right side)
+	signs = true, -- show signs in the gutter
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
 })
 
+-- For filetree
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+-- the verticle split line looks atrocious, so made it a bit bareable
