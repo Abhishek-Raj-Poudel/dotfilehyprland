@@ -27,6 +27,10 @@ return {
 
 			--bracket pair setting {}, () etc
 			require("mini.pairs").setup()
+
+			require("mini.git").setup()
+			require("mini.diff").setup()
+
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
