@@ -87,3 +87,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
+
+-- IDK what this does
+vim.o.list = true
+vim.opt.listchars = { tab = "| ", trail = "·", nbsp = "␣" }
