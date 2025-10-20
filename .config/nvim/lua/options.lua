@@ -61,3 +61,4 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- the verticle split line looks atrocious, so made it a bit bareable
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
