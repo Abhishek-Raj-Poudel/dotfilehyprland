@@ -1,48 +1,49 @@
--- Lua
--- Poimandres theme
--- "olivercederborg/poimandres.nvim",
---
+-- Using Lazy
 return {
-	"catppuccin/nvim",
-	lazy = false,
-	priority = 1000,
+	"navarasu/onedark.nvim",
+	priority = 1000, -- make sure to load this before all the other start plugins
 	config = function()
-		require("catppuccin").setup({
-			-- leave this setup function empty for default config
-			-- or refer to the configuration section
-			-- for configuration options
+		-- Lua
+		require("onedark").setup({
+			-- Main options --
+			style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+			transparent = false, -- Show/hide background
+			term_colors = true, -- Change terminal color as per the selected theme style
+			ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+			cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+			-- toggle theme style ---
+			toggle_style_key = "<leader>ts", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+			toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
+
+			-- Change code style ---
+			-- Options are italic, bold, underline, none
+			-- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+			code_style = {
+				comments = "italic",
+				keywords = "none",
+				functions = "none",
+				strings = "none",
+				variables = "none",
+			},
+
+			-- Lualine options --
+			lualine = {
+				transparent = false, -- lualine center bar transparency
+			},
+
+			-- Custom Highlights --
+			colors = {}, -- Override default colors
+			highlights = {}, -- Override highlight groups
+
+			-- Plugins Config --
+			diagnostics = {
+				darker = true, -- darker colors for diagnostic
+				undercurl = true, -- use undercurl instead of underline for diagnostics
+				background = true, -- use background color for virtual text
+			},
 		})
-		-- Apply to any colorscheme change
-		vim.api.nvim_create_autocmd("ColorScheme", {
-			callback = function()
-				-- Get the current background color
-				local bg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg
-				if bg then
-					-- Lighten the background color slightly for the separator
-					local function lighten(color, amount)
-						local r = bit.rshift(bit.band(color, 0xFF0000), 16)
-						local g = bit.rshift(bit.band(color, 0x00FF00), 8)
-						local b = bit.band(color, 0x0000FF)
-						r = math.min(255, r + amount)
-						g = math.min(255, g + amount)
-						b = math.min(255, b + amount)
-						return string.format("#%02x%02x%02x", r, g, b)
-					end
-					vim.api.nvim_set_hl(0, "WinSeparator", {
-						fg = lighten(bg, 20), -- adjust amount (20-40 works well)
-						bg = "NONE",
-					})
-				else
-					-- Fallback if background can't be determined
-					vim.api.nvim_set_hl(0, "WinSeparator", {
-						fg = "#3a3a3a",
-						bg = "NONE",
-					})
-				end
-			end,
-		})
-	end,
-	init = function()
-		vim.cmd("colorscheme catppuccin")
+		-- Enable theme
+		require("onedark").load()
 	end,
 }
