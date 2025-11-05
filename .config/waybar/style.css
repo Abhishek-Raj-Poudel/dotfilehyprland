@@ -5,22 +5,22 @@
 }
 
 window#waybar {
-    background-color: #111;
-    color: #ffffff;
+    background-color: #151515;
+    color: #eee;
 }
 
 #workspaces button {
-    color: #ffffff;
+    color: #eee;
     border-radius: 0;
 }
 
 #workspaces button:hover {
-    background-color:#B7BDF8;
+    background-color:#eee;
     color:#181926;
 }
 
 #workspaces button.focused {
-    background-color:#B7BDF8;
+    background-color:#eee;
 }
 
 #workspaces button.urgent {
@@ -28,7 +28,7 @@ window#waybar {
 }
 
 #workspaces button.active{
-    background-color:#B7BDF8;
+    background-color:#eee;
     color:#181926;
 }
 
@@ -65,7 +65,7 @@ window#waybar {
 
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
-    color: #ffffff;
+    color: #eee;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -82,7 +82,7 @@ window#waybar {
 #battery,
 #tray
 {
-    color: white;
+    color: #eee;
     padding: 0 16px;
 }
 

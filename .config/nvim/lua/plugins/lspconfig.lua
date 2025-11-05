@@ -3,7 +3,7 @@ return {
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
 			opts = {
-				ensure_installed = { "lua_ls", "bashls", "biome" },
+				ensure_installed = { "lua_ls", "bashls" },
 			},
 		},
 		dependencies = {
