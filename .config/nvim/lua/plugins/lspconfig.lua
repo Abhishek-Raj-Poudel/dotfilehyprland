@@ -12,6 +12,19 @@ return {
 				"neovim/nvim-lspconfig",
 
 				config = function(event)
+					-- Neovim 0.11+ style
+					vim.lsp.config.gdscript = {
+						cmd = { "nc", "localhost", "6005" },
+						name = "godot",
+					}
+
+					-- Start automatically for .gd files
+					vim.api.nvim_create_autocmd("FileType", {
+						pattern = "gdscript",
+						callback = function()
+							vim.lsp.start(vim.lsp.config.gdscript)
+						end,
+					})
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
